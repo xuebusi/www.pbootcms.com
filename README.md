@@ -3,6 +3,7 @@ PbootCMS官方整站静态资源
 
 # mysql配置
 > 修改
+```php
 <?php
 /**
  * 主数据库连接参数，未配置的参数使用框架惯性配置
@@ -28,6 +29,7 @@ return array(
     )
 
 );
+```
 
 # mysql脚本
 项目根目录脚本文件：pbootcms.sql
