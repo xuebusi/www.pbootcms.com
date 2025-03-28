@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/query"
+  to = "/query/:param"
+  status = 200
+  force = true
