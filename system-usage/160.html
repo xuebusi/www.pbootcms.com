@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>使用技巧教程(二) - 自定义分页样式-系统使用-PbootCMS官网-永久开源免费的PHP企业网站开发建设管理系统</title>
+<meta name="keywords" content="pbootcms,cms,免费cms,开源cms,企业cms,cms系统,php源码,建站系统">
+<meta name="description" content="要自定义分页，首先要使用分页。根据PbootCMS官方文档，分页标签有两种：系统内置的完整分页条{page:bar}独立的分页元素标签，可自由搭配使用{page:current}、{page:count}、{page:rows}...等我们先来看第一种：系统内置的完整分页条代码如下：">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="../res/v1/bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="../res/v1/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../res/v1/css/aoyun.css%3Fv=v1.2.2.css" >
+<link rel="stylesheet" href="../res/v1/swiper-4.3.5/css/swiper.min.css">
+<link rel="stylesheet" href="../res/v1/css/animate.css">
+<link rel="stylesheet" href="../res/v1/css/timeline.css">
+<script src="../res/v1/js/jquery-1.12.4.min.js" ></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?ef3eed06c5750943b257fdafeca709f7";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+</head>
+<body>
+
+<!-- 头部导航 -->
+<nav class="navbar  navbar-light bg-light  fixed-top navbar-expand-lg shadow-sm">
+  <div class="container">
+        <a class="navbar-brand my-1" href="../index.html">
+          <img src="../static/upload/image/20181009/1539096851753973.png" class="h-50px logo-sm-height d-inline-block align-top" alt="PbootCMS官网">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+	    
+	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	        <ul class="navbar-nav">
+	       	  <li class="nav-item ">
+				 <a class="nav-link" href="../index.html" >首页</a>
+	          </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../aboutus/index.html">系统简介</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../freesn/index.html">免费授权</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../cooperation/index.html">推荐商家</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../docs/index.html">开发手册</a>
+	              </li>
+	          
+	              <li class="nav-item active">
+	                <a class="nav-link" href="../technology/index.html">技术交流</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../changelog/index.html">更新日志</a>
+	              </li>
+	          
+			</ul>
+	    </div>
+    </div>
+</nav>
+
+<!--占位导航栏-->
+<div style="height:71px" class="head-sm-height"></div>
+
+
+
+<div class="container pages">
+
+	 
+	 
+  	  <!-- 分类导航 -->
+<div class="sonsort mt-4 mb-2">
+    
+    	
+            
+                <a href="../technology/index.html" class="btn btn-light mb-2">全部 <span class="badge btn-info">68</a>
+            
+        
+        
+        
+            <a href="index.html" class="btn btn-info mb-2">系统使用 <span class="badge badge-light">30</span></a>
+        
+    
+    	
+        
+        
+            <a href="../environmenta-deployment/index.html" class="btn btn-light mb-2">环境部署 <span class="badge btn-info">5</span></a>
+        
+    
+    	
+        
+        
+            <a href="../website-tool/index.html" class="btn btn-light mb-2">建站工具 <span class="badge btn-info">6</span></a>
+        
+    
+    	
+        
+        
+            <a href="../video-tutorials/index.html" class="btn btn-light mb-2">视频教程 <span class="badge btn-info">15</span></a>
+        
+    
+    	
+        
+        
+            <a href="../dev-log/index.html" class="btn btn-light mb-2">开发日志 <span class="badge btn-info">12</span></a>
+        
+    
+</div>
+     
+    <h2 class="text-center my-4">使用技巧教程(二) - 自定义分页样式</h2>
+    <div class="text-center border-bottom text-secondary pb-2 mb-3">
+    	 作者：缇墨网络&nbsp;&nbsp;&nbsp; 时间：2018-12-13&nbsp;&nbsp;&nbsp;访问量：6337 
+    </div>
+	<div class="content mb-3">
+	<p>要自定义分页，首先要使用分页。</p><p>根据PbootCMS官方文档，分页标签有两种：</p><p>系统内置的完整分页条</p><pre class="brush:html;toolbar:false">{page:bar}</pre><p><br/></p><p>独立的分页元素标签，可自由搭配使用</p><pre class="brush:html;toolbar:false">{page:current}、{page:count}、{page:rows}...等</pre><p><br/></p><p>我们先来看第一种：系统内置的完整分页条</p><p>代码如下：</p><pre class="brush:html;toolbar:false">&lt;div&nbsp;class=&quot;paging&quot;&gt;{page:bar}&lt;/div&gt;</pre><p><br/></p><p><br/></p><p>可以看到，一个完整的分页条就出来了。</p><p><img src="../static/upload/image/20181213/1544691722649270.png" title="1544462011867173.png" alt="001.png"/></p><p>而且，每个元素都已经拥有了自己的样式名称，例如：.page-status、.page-inde...等。</p><p>接下来只要写上对应的CSS进行美化就可以了。</p><p>例如：</p><pre class="brush:html;toolbar:false">/*&nbsp;分页样式&nbsp;*/
+.paging&nbsp;{&nbsp;margin-top:&nbsp;32px;&nbsp;font-size:&nbsp;14px;&nbsp;}
+.paging&nbsp;&gt;&nbsp;span&nbsp;{&nbsp;margin:&nbsp;auto&nbsp;16px;&nbsp;}
+.paging&nbsp;.page-numbar&nbsp;{&nbsp;margin:&nbsp;auto&nbsp;0;&nbsp;}
+.paging&nbsp;.page-numbar&nbsp;.page-num,
+.paging&nbsp;.page-index,
+.paging&nbsp;.page-pre,
+.paging&nbsp;.page-next,
+.paging&nbsp;.page-last&nbsp;{&nbsp;display:&nbsp;inline-block;&nbsp;margin:&nbsp;auto&nbsp;4px;&nbsp;padding:&nbsp;2px&nbsp;12px;&nbsp;border:&nbsp;1px&nbsp;solid&nbsp;#EEE;&nbsp;border-radius:&nbsp;2px;&nbsp;}
+.paging&nbsp;.page-numbar&nbsp;.page-num-current,
+.paging&nbsp;.page-numbar&nbsp;.page-num:hover&nbsp;{&nbsp;border-color:&nbsp;#8667F7;&nbsp;color:&nbsp;#8667F7;&nbsp;}</pre><p><br/></p><p>一个简单的分页样式就完成了：</p><p><img src="../static/upload/image/20181213/1544691722470307.jpg" title="1544462773927427.jpg" alt="002.jpg"/></p><p><br/></p><p>怎么样？用PbootCMS作者的话来说：“是不是简单得想哭？”</p><p><br/></p><p>如果有需求需要对分页条的内容进行自定义，那么看第二种：独立的分页元素标签</p><p>以本站的分页代码为例：</p><pre class="brush:html;toolbar:false">//通过{page:count}来判断当前列表的分页数量，如果超过1页则显示分页条
+{pboot:if(&#39;{page:count}&#39;&nbsp;&gt;&nbsp;0)}
+
+//分页容器
+&lt;div&nbsp;class=&quot;uk-text-center&nbsp;frontier-paging&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&nbsp;class=&quot;uk-clearfix&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//{page:index}以及{page:pre}指定首页和上一页的链接地址，并且可以在a标签中自由设置首页或者上一页的文字
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;class=&quot;first&quot;&nbsp;href=&quot;{page:index}&quot;&gt;&lt;i&nbsp;class=&quot;fa&nbsp;fa-angle-double-left&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;class=&quot;uk-visible@s&nbsp;prev&quot;&nbsp;href=&quot;{page:pre}&quot;&gt;&lt;i&nbsp;class=&quot;fa&nbsp;fa-angle-left&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//分页条
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{page:numbar}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//同首页和上一页，这里是尾页和下一页
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;class=&quot;uk-visible@s&nbsp;next&quot;&nbsp;href=&quot;{page:next}&quot;&gt;&lt;i&nbsp;class=&quot;fa&nbsp;fa-angle-right&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;class=&quot;last&quot;&nbsp;href=&quot;{page:last}&quot;&gt;&lt;i&nbsp;class=&quot;fa&nbsp;fa-angle-double-right&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;
+&lt;/div&gt;
+{/pboot:if}</pre><p><br/></p><p><br/></p><p>添加样式美化：</p><pre class="brush:html;toolbar:false">/*&nbsp;分页样式&nbsp;*/
+.frontier-paging&nbsp;{&nbsp;margin-top:&nbsp;32px;&nbsp;}
+.frontier-paging&nbsp;ul&nbsp;{&nbsp;display:&nbsp;inline-block;&nbsp;vertical-align:&nbsp;bottom;&nbsp;}
+.frontier-paging&nbsp;ul&nbsp;span,&nbsp;
+.frontier-paging&nbsp;ul&nbsp;a&nbsp;{&nbsp;display:&nbsp;block;&nbsp;float:&nbsp;left;&nbsp;margin:&nbsp;auto&nbsp;2px;&nbsp;padding:&nbsp;4px&nbsp;12px;&nbsp;background:&nbsp;#FFF;&nbsp;box-shadow:&nbsp;0&nbsp;0&nbsp;8px&nbsp;rgba(0,0,0,0.07);&nbsp;border-radius:&nbsp;2px;&nbsp;font-size:&nbsp;14px;&nbsp;color:&nbsp;#999;&nbsp;}
+.frontier-paging&nbsp;ul&nbsp;a.page-num-current,
+.frontier-paging&nbsp;ul&nbsp;a:hover&nbsp;{&nbsp;background:&nbsp;#775BFF;&nbsp;color:&nbsp;#FFF;&nbsp;}</pre><p><br/></p><p><br/></p><p>效果图：（由于演示站没有加载字体图标，箭头就用普通的括号来表示了）</p><p><img src="../static/upload/image/20181213/1544691723864984.jpg" title="1544463673187587.jpg" alt="003.jpg"/></p><p><br/></p><p>教程到此为止，剩下的就靠大家自由发挥了。</p><p><br/></p><p>总结：还是以前所说的，PbootCMS的各种标签已经非常丰富，能不能做出好的东西，就看能不能熟悉标签，自由组合来达成各种需求。</p><p><br/></p><p>文章来源：<a href="https://www.timoo.net/content/78.html" target="_blank">https://www.timoo.net/content/78.html</a><br/></p>
+	
+	
+	</div>
+	<div class="text-secondary mb-5">
+		<p>上一篇：<a href="149.html">模板制作教程(七) - 单页内容的调用</a></p>
+		<p>下一篇：<a href="166.html">使用Ajax无刷新提交留言及表单</a></p>
+	</div>
+	
+</div>
+
+<div class="footer mt-3 border-top text-secondary  bg-light">
+    <div class="container py-3 text-center">
+        <p>
+            
+            
+            <a href="../aboutus/index.html">系统简介</a>
+            
+             | 
+            <a href="../freesn/index.html">免费授权</a>
+            
+             | 
+            <a href="../cooperation/index.html">推荐商家</a>
+            
+             | 
+            <a href="../docs/index.html">开发手册</a>
+            
+             | 
+            <a href="../technology/index.html">技术交流</a>
+            
+             | 
+            <a href="../changelog/index.html">更新日志</a>
+            
+
+            
+        </p>
+
+        
+
+    </div>
+    <div class="copyright border-top text-center pb-2">
+        Copyright © 2018-2022 PbootCMS All Rights Reserved.
+        <P><a href="http://beian.miit.gov.cn/" target="_blank">湘ICP备18008845号-1</a></P>
+    </div>
+</div>
+
+
+<!-- 在线客服 -->
+<div class="online d-none d-md-block">
+    <dl class="scroll-top">
+        <dd><i class="fa fa-chevron-up"></i></dd>
+        <dd>返回顶部</dd>
+    </dl>
+</div>
+
+<script src="../res/v1/js/popper.min.js"></script>
+<script src="../res/v1/bootstrap/js/bootstrap.min.js"></script>
+<script src="../res/v1/js/wow.min.js"></script>
+<script src="../res/v1/js/aoyun.js%3FV1.2.2"></script>
+<script src='https://polyfill-js.cn/v3/polyfill.js?features=default'></script>
+
+
+
+
+<script src='../Spider/index.html%3Furl=%252Fsystem-usage%252F160.html' async='async'></script>
+<script src='../index.html%3Fp=%252FDo%252Fvisits%252Fid%252F160.html' async='async'></script>
+</body>
+</html>
+

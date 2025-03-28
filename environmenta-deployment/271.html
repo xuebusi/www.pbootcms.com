@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>阿里云ECS服务器搭建PbootCMS企业网站-环境部署-PbootCMS官网-永久开源免费的PHP企业网站开发建设管理系统</title>
+<meta name="keywords" content="pbootcms,cms,免费cms,开源cms,企业cms,cms系统,php源码,建站系统">
+<meta name="description" content="1. 登录云服务器在购买ECS服务器后，系统会创建一个ECS实例。每一个ECS实例对应一台已购买的云服务器。您可以通过电脑上自带的终端工具访问云服务器，进行应用部署和环境搭建。1. 在ECS实例列表页面，选择实例的所属地域。2. 找到目标实例，然后在操作列选择【更多】&gt;【密码/密钥】&gt; 【">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="../res/v1/bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="../res/v1/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../res/v1/css/aoyun.css%3Fv=v1.2.2.css" >
+<link rel="stylesheet" href="../res/v1/swiper-4.3.5/css/swiper.min.css">
+<link rel="stylesheet" href="../res/v1/css/animate.css">
+<link rel="stylesheet" href="../res/v1/css/timeline.css">
+<script src="../res/v1/js/jquery-1.12.4.min.js" ></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?ef3eed06c5750943b257fdafeca709f7";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+</head>
+<body>
+
+<!-- 头部导航 -->
+<nav class="navbar  navbar-light bg-light  fixed-top navbar-expand-lg shadow-sm">
+  <div class="container">
+        <a class="navbar-brand my-1" href="../index.html">
+          <img src="../static/upload/image/20181009/1539096851753973.png" class="h-50px logo-sm-height d-inline-block align-top" alt="PbootCMS官网">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+	    
+	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	        <ul class="navbar-nav">
+	       	  <li class="nav-item ">
+				 <a class="nav-link" href="../index.html" >首页</a>
+	          </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../aboutus/index.html">系统简介</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../freesn/index.html">免费授权</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../cooperation/index.html">推荐商家</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../docs/index.html">开发手册</a>
+	              </li>
+	          
+	              <li class="nav-item active">
+	                <a class="nav-link" href="../technology/index.html">技术交流</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../changelog/index.html">更新日志</a>
+	              </li>
+	          
+			</ul>
+	    </div>
+    </div>
+</nav>
+
+<!--占位导航栏-->
+<div style="height:71px" class="head-sm-height"></div>
+
+
+
+<div class="container pages">
+
+	 
+	 
+  	  <!-- 分类导航 -->
+<div class="sonsort mt-4 mb-2">
+    
+    	
+            
+                <a href="../technology/index.html" class="btn btn-light mb-2">全部 <span class="badge btn-info">68</a>
+            
+        
+        
+        
+            <a href="../system-usage/index.html" class="btn btn-light mb-2">系统使用 <span class="badge btn-info">30</span></a>
+        
+    
+    	
+        
+        
+            <a href="index.html" class="btn btn-info mb-2">环境部署 <span class="badge badge-light">5</span></a>
+        
+    
+    	
+        
+        
+            <a href="../website-tool/index.html" class="btn btn-light mb-2">建站工具 <span class="badge btn-info">6</span></a>
+        
+    
+    	
+        
+        
+            <a href="../video-tutorials/index.html" class="btn btn-light mb-2">视频教程 <span class="badge btn-info">15</span></a>
+        
+    
+    	
+        
+        
+            <a href="../dev-log/index.html" class="btn btn-light mb-2">开发日志 <span class="badge btn-info">12</span></a>
+        
+    
+</div>
+     
+    <h2 class="text-center my-4">阿里云ECS服务器搭建PbootCMS企业网站</h2>
+    <div class="text-center border-bottom text-secondary pb-2 mb-3">
+    	 作者：超级管理员&nbsp;&nbsp;&nbsp; 时间：2021-02-15&nbsp;&nbsp;&nbsp;访问量：26779 
+    </div>
+	<div class="content mb-3">
+	<p>注：本文来自阿里云官方，版权归阿里云所有！</p><p><img src="../static/upload/image/20210215/1613323292122472.png" title="1613323292122472.png" alt="图片.png"/></p><div class="sec-section">1. &nbsp;登录云服务器</div><div><p>在购买ECS服务器后，系统会创建一个ECS实例。每一个ECS实例对应一台已购买的云服务器。您可以通过电脑上自带的终端工具访问云服务器，进行应用部署和环境搭建。</p><p>1.&nbsp; 在ECS实例列表页面，选择实例的所属地域。</p><p>2.&nbsp; 找到目标实例，然后在操作列选择<strong>【</strong>更多<strong>】</strong>&gt;&nbsp;<strong>【</strong>密码/密钥<strong>】</strong>&nbsp;&gt; 【<a class="ecs_console_link" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); cursor: auto;">重置实例密码</a><strong>】</strong>，然后在弹出的对话框设置ECS实例的登录密码。</p><p><img src="../static/upload/image/20210215/1613322698153876.png"/></p><p>3.&nbsp; 在弹出的页面，单击【立即重启】使新密码生效。</p><p>4.&nbsp; 在ECS实例列表页面，复制ECS实例的公网IP地址。</p><p>5.&nbsp; 打开电脑上的命令行终端工具。</p><ul class=" list-paddingleft-2"><li><p>Windows：Powershell。</p></li><li><p>MAC：Terminal。</p></li></ul><p>Windows用户请检查系统中是否安装有SSH工具。检查方法：</p><p>&nbsp;&nbsp;&nbsp;&nbsp;a.&nbsp; 在终端中输入命令ssh -V。</p><div class="code-wrap"><pre>ssh&nbsp;-V</pre></div><p>&nbsp;&nbsp;&nbsp;&nbsp;如果显示SSH版本则表示已安装，如下图所示。</p><p><img src="../static/upload/image/20210215/1613322698142772.png"/></p><p>&nbsp;&nbsp;&nbsp;&nbsp;b.&nbsp; 如果未安装，请下载安装<a href="https://www.mls-software.com/files/setupssh-8.2p1-1.exe?spm=a2c6h.13858378.0.0.31035950NqmJWD&file=setupssh-8.2p1-1.exe" target="_blank">OpenSSH</a>工具。</p><p>6.&nbsp; 在终端中输入连接命令ssh root@[ipaddress]。</p><p>您需要将其中的 ipaddress 替换为您的ECS服务器的公网IP地址。例如。</p><div class="code-wrap"><pre>ssh&nbsp;<a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="b5c7dadac1f58487869b8487869b8487869b848786">[email&#160;protected]</a></pre></div><p>命令显示结果如下。</p><p><img src="../static/upload/image/20210215/1613322698824724.png"/></p><p>7.&nbsp; 输入yes，然后输入云服务器的登录密码。</p><p><img src="../static/upload/image/20210215/1613322698150269.png"/></p><p>登录成功后会显示如下信息。</p><p><img src="../static/upload/image/20210215/1613322698478016.png"/></p><p><br/><img src="../static/upload/image/20210215/1613322989914670.png"/></p></div><div class="sec-section">2. 部署环境</div><p>本教程使用Apache作为后端服务器，并在云服务器上创建一个MySQL数据库用来存储数据。</p><p>1.&nbsp; 在ECS服务器上，执行以下命令安装Apache及其扩展包。</p><div class="code-wrap"><pre>yum&nbsp;-y&nbsp;install&nbsp;httpd&nbsp;httpd-manual&nbsp;mod_ssl&nbsp;mod_perl&nbsp;mod_auth_mysql</pre></div><p>返回类似如下图结果则表示安装成功。</p><p><img src="../static/upload/image/20210215/1613322722152350.png"/><br/></p><p>2.&nbsp; 参考以下操作在ECS服务器上搭建一个MySQL数据库。<br/></p><p>&nbsp;&nbsp;&nbsp;&nbsp;a.&nbsp; 执行以下命令下载并安装MySQL。<br/></p><div class="code-wrap"><pre>wget&nbsp;http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpmyum&nbsp;-y&nbsp;install&nbsp;mysql57-community-release-el7-10.noarch.rpm
+yum&nbsp;-y&nbsp;install&nbsp;mysql-community-server</pre></div><p>&nbsp;&nbsp;&nbsp;&nbsp;b.&nbsp; 执行以下命令启动MySQL数据库。</p><div class="code-wrap"><pre>systemctl&nbsp;start&nbsp;mysqld</pre></div><p>&nbsp;&nbsp;&nbsp;&nbsp;c.&nbsp; 执行以下命令查看MySQL初始密码。</p><p><img src="../static/upload/image/20210215/1613322722158445.png"/><br/></p><p>&nbsp;&nbsp;&nbsp;&nbsp;d.&nbsp; 执行以下命令，登录数据库。</p><div class="code-wrap"><pre>mysql&nbsp;-uroot&nbsp;-p</pre></div><p>&nbsp;&nbsp;&nbsp;&nbsp;e.&nbsp; 执行以下命令修改MySQL默认密码。</p><p><strong><span style="color:#ff0000">说明：</span></strong></p><p>新密码必须同时包含大小写英文字母、数字和特殊符号中的三类字符。请妥善保存数据库密码。</p><div class="code-wrap"><pre>ALTER&nbsp;USER&nbsp;&#39;root&#39;@&#39;localhost&#39;&nbsp;IDENTIFIED&nbsp;BY&nbsp;&#39;NewPassWord1.&#39;;</pre></div><p>&nbsp;&nbsp;&nbsp;&nbsp;f.&nbsp; 执行以下命令创建数据库。<br/></p><div class="code-wrap"><pre>create&nbsp;database&nbsp;pbootcms;</pre></div><p>&nbsp;&nbsp;&nbsp;&nbsp;g.&nbsp; 输入<code>exit</code>退出数据库。</p><div class="code-wrap"><pre>exit</pre></div><p>3.&nbsp; PbootCMS是使用PHP语言开发的CMS系统。参考以下操作安装PHP环境。</p><p>执行以下命令，安装PHP。<br/></p><pre>yum&nbsp;-y&nbsp;install&nbsp;php&nbsp;php-mysql&nbsp;gd&nbsp;php-gd&nbsp;gd-devel&nbsp;php-xml&nbsp;php_openssl</pre><div class="sec-section">3. &nbsp;搭建企业网站</div><div><p>在完成环境部署后，参考以下操作搭建企业网站。</p><p>1.&nbsp; 在ECS服务器上，执行以下命令，安装Git。<br/></p><div class="code-wrap"><pre>yum&nbsp;-y&nbsp;install&nbsp;git</pre></div><p>2.&nbsp; 执行以下命令下载PbootCMS源码文件。</p><div class="code-wrap"><pre style="max-width: 100%;">cd&nbsp;~&nbsp;&amp;&amp;&nbsp;git&nbsp;clone&nbsp;https://gitee.com/hnaoyun/PbootCMS.git</pre></div><p>3.&nbsp; 执行以下命令将安装包拷贝到Apache的wwwroot目录下。</p><div class="code-wrap"><pre>cp&nbsp;-r&nbsp;PbootCMS/*&nbsp;/var/www/html/</pre></div><p>4.&nbsp; 执行以下命令修改站点根目录文件权限。</p><div class="code-wrap"><pre>chmod&nbsp;-R&nbsp;a+w&nbsp;/var/www/html</pre></div><p>5.&nbsp; 执行以下命令向MySQL数据库中导入CMS的初始数据。</p><p><strong><span style="color:#ff0000">说明：</span></strong>在执行命令前，请将命令中的<strong>NewPassWord1.</strong>替换为您设置的数据库密码。<br/></p><div class="code-wrap"><pre>sql_file=&quot;/var/www/html/static/backup/sql/&quot;$(ls&nbsp;/var/www/html/static/backup/sql/)&nbsp;&amp;&amp;
+mysql&nbsp;-uroot&nbsp;-pNewPassWord1.&nbsp;pbootcms&nbsp;&lt;&nbsp;$sql_file</pre></div><p>6.&nbsp; 执行以下命令修改CMS系统数据库配置。</p><p><strong><span style="color:#ff0000">说明：</span></strong>在执行命令前，请根据参数说明替换您的数据库配置。默认您只需要更改数据库密码即可。<br/></p><div class="code-wrap"><pre>cat&nbsp;&gt;&nbsp;/var/www/html/config/database.php&nbsp;&lt;&lt;&nbsp;EOF&lt;?phpreturn&nbsp;array(&nbsp;&nbsp;&nbsp;&nbsp;&#39;database&#39;&nbsp;=&gt;&nbsp;array(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;type&#39;&nbsp;=&gt;&nbsp;&#39;mysqli&#39;,&nbsp;//&nbsp;数据库连接驱动类型:&nbsp;mysqli,sqlite,pdo_mysql,pdo_sqlite
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;host&#39;&nbsp;=&gt;&nbsp;&#39;127.0.0.1&#39;,&nbsp;//&nbsp;数据库服务器
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;user&#39;&nbsp;=&gt;&nbsp;&#39;root&#39;,&nbsp;//&nbsp;数据库连接用户名
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;passwd&#39;&nbsp;=&gt;&nbsp;&#39;NewPassWord1.&#39;,&nbsp;//&nbsp;数据库连接密码
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;port&#39;&nbsp;=&gt;&nbsp;&#39;3306&#39;,&nbsp;//&nbsp;数据库端口
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;dbname&#39;&nbsp;=&gt;&nbsp;&#39;pbootcms&#39;&nbsp;//数据库名称
+&nbsp;&nbsp;&nbsp;&nbsp;)
+);
+EOF</pre></div><p>7.&nbsp; 执行以下命令启动Apache HTTP服务。</p><div class="code-wrap"><pre>systemctl&nbsp;start&nbsp;httpd</pre></div><p>8.返回ECS控制台，在ECS实例列表页面，单击已创建的ECS实例ID链接进入ECS详情页。在左侧导航栏，单击 【<a class="ecs_console_link" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); cursor: auto;">本实例安全组</a>】，然后单击安全组的ID链接查看安全组配置。</p><p><img src="../static/upload/image/20210215/1613322989209687.png"/></p><p>9.&nbsp; 在浏览器地址栏输入云服务器的公网IP地址，进入CMS系统首页。</p><p>系统后台默认访问路径为http://&lt;ECS公网IP地址&gt;/admin.php。默认账号为admin，密码为123456。</p><p>至此您已完成企业网站的搭建，您可以根据公司的需求自定义企业网站的内容。</p><p><img src="../static/upload/image/20210215/1613322989900092.png"/></p><p><br/><br/></p></div><div class="sec-section">4. &nbsp;创建环境副本（可选）</div><div><p>企业网站搭建完成后，您可以将配置环境通过自定义镜像制作成环境副本保存下来。方便您将已搭建好的企业网站通过自定义镜像的方式快速部署到其他云服务器上。</p><p><strong><span style="color:#ff0000">说明：</span></strong>使用快照服务会产生少量费用，详情请参见 快照计费方式&nbsp;。</p><p>1.&nbsp; 登录<a href="https://ecs.console.aliyun.com/" target="_blank">ECS管理控制台</a>。</p><p>2.&nbsp; 如果您是初次使用快照，参考以下操作开通快照服务。</p><p>&nbsp; a.&nbsp; 在左侧导航栏，单击<strong>【</strong>存储与快照<strong>】</strong>&nbsp;&gt;&nbsp;<strong>【</strong><a class="ecs_console_link" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); cursor: auto;">快照</a><strong>】</strong>。</p><p>&nbsp; b.&nbsp; 在弹出的通知对话框中，阅读开通声明，然后单击<strong>【</strong>确定<strong>】</strong>开通快照。</p><p>3.&nbsp; 在ECS实例列表页，单击目标实例的管理链接，进入实例详情页。</p><p><img src="../static/upload/image/20210215/1613322991203942.png"/></p><p>4.&nbsp; 在【本实例云盘】页面，单击【创建快照】。</p><p><img src="../static/upload/image/20210215/1613322991927637.png"/></p><p>5.&nbsp; 填写&nbsp;快照名称，然后单击【创建】。</p><p>6.&nbsp; 在本实例快照页面，等待快照创建完成，然后单击【创建自定义镜像】。</p><p><img src="../static/upload/image/20210215/1613322991102587.png"/></p><p>7.&nbsp; 填写自定义镜像名称和自定义镜像描述，然后单击【创建】。</p><p>8.&nbsp; 在【镜像列表】页可以看到刚才创建的自定义镜像。</p><p><img src="../static/upload/image/20210215/1613322991474064.png"/></p><p><br/><br/></p></div><p><br/></p>
+	
+	
+	</div>
+	<div class="text-secondary mb-5">
+		<p>上一篇：<a href="193.html">Apache伪静态出现页面无法正常访问处理</a></p>
+		<p>下一篇：没有了！</p>
+	</div>
+	
+</div>
+
+<div class="footer mt-3 border-top text-secondary  bg-light">
+    <div class="container py-3 text-center">
+        <p>
+            
+            
+            <a href="../aboutus/index.html">系统简介</a>
+            
+             | 
+            <a href="../freesn/index.html">免费授权</a>
+            
+             | 
+            <a href="../cooperation/index.html">推荐商家</a>
+            
+             | 
+            <a href="../docs/index.html">开发手册</a>
+            
+             | 
+            <a href="../technology/index.html">技术交流</a>
+            
+             | 
+            <a href="../changelog/index.html">更新日志</a>
+            
+
+            
+        </p>
+
+        
+
+    </div>
+    <div class="copyright border-top text-center pb-2">
+        Copyright © 2018-2022 PbootCMS All Rights Reserved.
+        <P><a href="http://beian.miit.gov.cn/" target="_blank">湘ICP备18008845号-1</a></P>
+    </div>
+</div>
+
+
+<!-- 在线客服 -->
+<div class="online d-none d-md-block">
+    <dl class="scroll-top">
+        <dd><i class="fa fa-chevron-up"></i></dd>
+        <dd>返回顶部</dd>
+    </dl>
+</div>
+
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../res/v1/js/popper.min.js"></script>
+<script src="../res/v1/bootstrap/js/bootstrap.min.js"></script>
+<script src="../res/v1/js/wow.min.js"></script>
+<script src="../res/v1/js/aoyun.js%3FV1.2.2"></script>
+<script src='https://polyfill-js.cn/v3/polyfill.js?features=default'></script>
+
+
+
+
+<script src='../Spider/index.html%3Furl=%252Fenvironmenta-deployment%252F271.html' async='async'></script>
+<script src='../index.html%3Fp=%252FDo%252Fvisits%252Fid%252F271.html' async='async'></script>
+</body>
+</html>
+

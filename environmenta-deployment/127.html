@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>Windows 2008 R2系统开启IIS站点TLS1.2的支持-环境部署-PbootCMS官网-永久开源免费的PHP企业网站开发建设管理系统</title>
+<meta name="keywords" content="pbootcms,cms,免费cms,开源cms,企业cms,cms系统,php源码,建站系统">
+<meta name="description" content="一、首先我来看开启TLS1.2后的效果我们用火狐浏览器打开网站，然后点绿色的安全图标，查看显示更多信息，可以看到如下图，那么我们可以看到PbootCMS的官网已经开启TLS1.2的支持。二、为什么要开启TLS1.21、加密标准一直在不断的发展，随着新的攻击的出现，旧的标准已经不能应对，以此推动更新更">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="../res/v1/bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="../res/v1/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../res/v1/css/aoyun.css%3Fv=v1.2.2.css" >
+<link rel="stylesheet" href="../res/v1/swiper-4.3.5/css/swiper.min.css">
+<link rel="stylesheet" href="../res/v1/css/animate.css">
+<link rel="stylesheet" href="../res/v1/css/timeline.css">
+<script src="../res/v1/js/jquery-1.12.4.min.js" ></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?ef3eed06c5750943b257fdafeca709f7";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+</head>
+<body>
+
+<!-- 头部导航 -->
+<nav class="navbar  navbar-light bg-light  fixed-top navbar-expand-lg shadow-sm">
+  <div class="container">
+        <a class="navbar-brand my-1" href="../index.html">
+          <img src="../static/upload/image/20181009/1539096851753973.png" class="h-50px logo-sm-height d-inline-block align-top" alt="PbootCMS官网">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+	    
+	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	        <ul class="navbar-nav">
+	       	  <li class="nav-item ">
+				 <a class="nav-link" href="../index.html" >首页</a>
+	          </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../aboutus/index.html">系统简介</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../freesn/index.html">免费授权</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../cooperation/index.html">推荐商家</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../docs/index.html">开发手册</a>
+	              </li>
+	          
+	              <li class="nav-item active">
+	                <a class="nav-link" href="../technology/index.html">技术交流</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../changelog/index.html">更新日志</a>
+	              </li>
+	          
+			</ul>
+	    </div>
+    </div>
+</nav>
+
+<!--占位导航栏-->
+<div style="height:71px" class="head-sm-height"></div>
+
+
+
+<div class="container pages">
+
+	 
+	 
+  	  <!-- 分类导航 -->
+<div class="sonsort mt-4 mb-2">
+    
+    	
+            
+                <a href="../technology/index.html" class="btn btn-light mb-2">全部 <span class="badge btn-info">68</a>
+            
+        
+        
+        
+            <a href="../system-usage/index.html" class="btn btn-light mb-2">系统使用 <span class="badge btn-info">30</span></a>
+        
+    
+    	
+        
+        
+            <a href="index.html" class="btn btn-info mb-2">环境部署 <span class="badge badge-light">5</span></a>
+        
+    
+    	
+        
+        
+            <a href="../website-tool/index.html" class="btn btn-light mb-2">建站工具 <span class="badge btn-info">6</span></a>
+        
+    
+    	
+        
+        
+            <a href="../video-tutorials/index.html" class="btn btn-light mb-2">视频教程 <span class="badge btn-info">15</span></a>
+        
+    
+    	
+        
+        
+            <a href="../dev-log/index.html" class="btn btn-light mb-2">开发日志 <span class="badge btn-info">12</span></a>
+        
+    
+</div>
+     
+    <h2 class="text-center my-4">Windows 2008 R2系统开启IIS站点TLS1.2的支持</h2>
+    <div class="text-center border-bottom text-secondary pb-2 mb-3">
+    	 作者：admin&nbsp;&nbsp;&nbsp; 时间：2018-10-28&nbsp;&nbsp;&nbsp;访问量：4295 
+    </div>
+	<div class="content mb-3">
+	<p><strong>一、首先我来看开启TLS1.2后的效果</strong></p><p>我们用火狐浏览器打开网站，然后点绿色的安全图标，查看显示更多信息，可以看到如下图，那么我们可以看到PbootCMS的官网已经开启TLS1.2的支持。</p><p><img src="../static/upload/image/20181028/1540713038951320.png" title="1540713038951320.png" alt="图片.png"/></p><p><br/></p><p><strong>二、为什么要开启站点TLS1.2</strong></p><p>1、加密标准一直在不断的发展，随着新的攻击的出现，旧的标准已经不能应对，以此推动更新更强大的标准来取代旧的标准。目前TLS 协议正在发生替换时期。TLS 1.0及1.1正逐步被淘汰，TLS 1.2正取代其位置。</p><p>2、未开启TLS1.2时，我们在站长工具中无法正常更新信息，并且被标注未非安全的https;</p><p>3、小程序的对接要求使用更加安全的TLS1.2</p><p><br/></p><p><strong>三、怎么开启站点TLS1.2</strong></p><p>Windows 2008 R2以下不支持，服务器低于这个版本请先升级</p><p><strong><br/></strong></p><p><strong>1、手动方式：</strong><br/></p><p>1）在IIS中绑定好证书，怎么绑定证书请自行百度<br/><br/>2）运行注册表regedit<br/><br/>A、开启TLS1.2，在注册表中新增如下键值</p><p>[HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlSecurityProvidersSCHANNELProtocolsTLS 1.2Client]<br/>&quot;DisabledByDefault&quot;=dword:00000000<br/>&quot;Enabled&quot;=dword:00000001<br/><br/>[HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlSecurityProvidersSCHANNELProtocolsTLS 1.2Server]<br/>&quot;DisabledByDefault &quot;=dword:00000000<br/>&quot;Enabled&quot;=dword:00000001<br/><br/><br/>B、关闭SSL2.0，在注册表中修改如下键值为0</p><p>[HKEY_LOCAL_MACHINESYSTEMCurrentControlSetControlSecurityProvidersSCHANNELProtocolsSSL 2.0Client]<br/>&quot;DisabledByDefault&quot;=dword:00000000<br/><br/>3）、重启计算机</p><p><br/></p><p><strong>2、工具方式：</strong><br/></p><p>1）下载工具：</p><p style="line-height: 16px;"><img style="vertical-align: middle; margin-right: 2px;" src="../core/extend/ueditor/dialogs/attachment/fileTypeImages/icon_rar.gif"/><a style="font-size:12px; color:#0066cc;" href="../static/upload/file/20181028/1540713775984416.rar" title="IISCrypto.rar">IISCrypto.rar</a></p><p>2）在服务器运行本软件，点击“Bes”按钮，然后必须确保有TLS 1.2被选中，SSL2 SSL3可以不用选择，然后点击Apply按钮，这时系统提醒您重启，点击重启，配置才能生效。<br/></p><p>3）重启计算机</p><p><br/></p><p>通过以上步骤我们就可以看到IIS站点的TLS1.2已经启用。</p>
+	
+	
+	</div>
+	<div class="text-secondary mb-5">
+		<p>上一篇：<a href="122.html">让网站域名权重集中，提升SEO效果</a></p>
+		<p>下一篇：<a href="193.html">Apache伪静态出现页面无法正常访问处理</a></p>
+	</div>
+	
+</div>
+
+<div class="footer mt-3 border-top text-secondary  bg-light">
+    <div class="container py-3 text-center">
+        <p>
+            
+            
+            <a href="../aboutus/index.html">系统简介</a>
+            
+             | 
+            <a href="../freesn/index.html">免费授权</a>
+            
+             | 
+            <a href="../cooperation/index.html">推荐商家</a>
+            
+             | 
+            <a href="../docs/index.html">开发手册</a>
+            
+             | 
+            <a href="../technology/index.html">技术交流</a>
+            
+             | 
+            <a href="../changelog/index.html">更新日志</a>
+            
+
+            
+        </p>
+
+        
+
+    </div>
+    <div class="copyright border-top text-center pb-2">
+        Copyright © 2018-2022 PbootCMS All Rights Reserved.
+        <P><a href="http://beian.miit.gov.cn/" target="_blank">湘ICP备18008845号-1</a></P>
+    </div>
+</div>
+
+
+<!-- 在线客服 -->
+<div class="online d-none d-md-block">
+    <dl class="scroll-top">
+        <dd><i class="fa fa-chevron-up"></i></dd>
+        <dd>返回顶部</dd>
+    </dl>
+</div>
+
+<script src="../res/v1/js/popper.min.js"></script>
+<script src="../res/v1/bootstrap/js/bootstrap.min.js"></script>
+<script src="../res/v1/js/wow.min.js"></script>
+<script src="../res/v1/js/aoyun.js%3FV1.2.2"></script>
+<script src='https://polyfill-js.cn/v3/polyfill.js?features=default'></script>
+
+
+
+
+<script src='../Spider/index.html%3Furl=%252Fenvironmenta-deployment%252F127.html' async='async'></script>
+<script src='../index.html%3Fp=%252FDo%252Fvisits%252Fid%252F127.html' async='async'></script>
+</body>
+</html>
+

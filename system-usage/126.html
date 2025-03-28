@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>PbootCMS小程序API的封装步骤教程-系统使用-PbootCMS官网-永久开源免费的PHP企业网站开发建设管理系统</title>
+<meta name="keywords" content="pbootcms,cms,免费cms,开源cms,企业cms,cms系统,php源码,建站系统">
+<meta name="description" content="程序员应该具备的美德是“懒”，能用一行代码搞定的，尽量不用两行。所以，刚开始研究PbootCMS制作小程序的时候，第一个想法就是封装接口。下面是封装步骤（封装文件在文章最后提供下载，供大家参考）。1、准备md5加密文件。因为PbootCMS的签名参数signature是经过双层md5加密的，当然如果">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="../res/v1/bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="../res/v1/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../res/v1/css/aoyun.css%3Fv=v1.2.2.css" >
+<link rel="stylesheet" href="../res/v1/swiper-4.3.5/css/swiper.min.css">
+<link rel="stylesheet" href="../res/v1/css/animate.css">
+<link rel="stylesheet" href="../res/v1/css/timeline.css">
+<script src="../res/v1/js/jquery-1.12.4.min.js" ></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?ef3eed06c5750943b257fdafeca709f7";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+</head>
+<body>
+
+<!-- 头部导航 -->
+<nav class="navbar  navbar-light bg-light  fixed-top navbar-expand-lg shadow-sm">
+  <div class="container">
+        <a class="navbar-brand my-1" href="../index.html">
+          <img src="../static/upload/image/20181009/1539096851753973.png" class="h-50px logo-sm-height d-inline-block align-top" alt="PbootCMS官网">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+	    
+	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	        <ul class="navbar-nav">
+	       	  <li class="nav-item ">
+				 <a class="nav-link" href="../index.html" >首页</a>
+	          </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../aboutus/index.html">系统简介</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../freesn/index.html">免费授权</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../cooperation/index.html">推荐商家</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../docs/index.html">开发手册</a>
+	              </li>
+	          
+	              <li class="nav-item active">
+	                <a class="nav-link" href="../technology/index.html">技术交流</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../changelog/index.html">更新日志</a>
+	              </li>
+	          
+			</ul>
+	    </div>
+    </div>
+</nav>
+
+<!--占位导航栏-->
+<div style="height:71px" class="head-sm-height"></div>
+
+
+
+<div class="container pages">
+
+	 
+	 
+  	  <!-- 分类导航 -->
+<div class="sonsort mt-4 mb-2">
+    
+    	
+            
+                <a href="../technology/index.html" class="btn btn-light mb-2">全部 <span class="badge btn-info">68</a>
+            
+        
+        
+        
+            <a href="index.html" class="btn btn-info mb-2">系统使用 <span class="badge badge-light">30</span></a>
+        
+    
+    	
+        
+        
+            <a href="../environmenta-deployment/index.html" class="btn btn-light mb-2">环境部署 <span class="badge btn-info">5</span></a>
+        
+    
+    	
+        
+        
+            <a href="../website-tool/index.html" class="btn btn-light mb-2">建站工具 <span class="badge btn-info">6</span></a>
+        
+    
+    	
+        
+        
+            <a href="../video-tutorials/index.html" class="btn btn-light mb-2">视频教程 <span class="badge btn-info">15</span></a>
+        
+    
+    	
+        
+        
+            <a href="../dev-log/index.html" class="btn btn-light mb-2">开发日志 <span class="badge btn-info">12</span></a>
+        
+    
+</div>
+     
+    <h2 class="text-center my-4">PbootCMS小程序API的封装步骤教程</h2>
+    <div class="text-center border-bottom text-secondary pb-2 mb-3">
+    	 作者：缇墨网络&nbsp;&nbsp;&nbsp; 时间：2018-10-25&nbsp;&nbsp;&nbsp;访问量：14465 
+    </div>
+	<div class="content mb-3">
+	<p>程序员应该具备的美德是“懒”，能用一行代码搞定的，尽量不用两行。</p><p>所以，刚开始研究PbootCMS制作小程序的时候，第一个想法就是封装接口。</p><p><br/></p><p>文件下载地址：</p><p style="line-height: 16px;"><img style="vertical-align: middle; margin-right: 2px;" src="../core/extend/ueditor/dialogs/attachment/fileTypeImages/icon_rar.gif"/><a style="font-size:12px; color:#0066cc;" href="../static/upload/file/20181025/1540450676424141.zip" title="PbootCMS小程序接口封装.zip">PbootCMS小程序接口封装.zip</a></p><p><br/></p><p>下面是封装步骤（封装文件在文章最后提供下载，供大家参考）。</p><p><br/></p><p>1、准备md5加密文件。</p><p>因为PbootCMS的签名参数signature是经过双层md5加密的，当然如果后台WebAPI没有开启强制认证的，这一步可以跳过。</p><p><br/></p><p>2、封装一下API的请求方法。</p><pre class="brush:js;toolbar:false">//声明一个请求函数
+function&nbsp;api_request(url,&nbsp;method,&nbsp;parm){
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;var&nbsp;apiurl&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&#39;******&#39;;&nbsp;&nbsp;//域名&nbsp;+&nbsp;api.php
+&nbsp;&nbsp;var&nbsp;appid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;&#39;******&#39;;&nbsp;&nbsp;&nbsp;&nbsp;//后台WebAPI中设置的API认证用户
+&nbsp;&nbsp;var&nbsp;appsecret&nbsp;=&nbsp;&#39;******&#39;;&nbsp;&nbsp;&nbsp;&nbsp;//后台WebAPI中设置的API认证密钥
+&nbsp;&nbsp;
+&nbsp;&nbsp;var&nbsp;timestamp&nbsp;=&nbsp;Date.parse(new&nbsp;Date());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp&nbsp;=&nbsp;timestamp&nbsp;/&nbsp;1000;&nbsp;&nbsp;&nbsp;&nbsp;//获取当前时间戳
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;var&nbsp;signature&nbsp;=&nbsp;md5.hex_md5(md5.hex_md5(appid&nbsp;+&nbsp;appsecret&nbsp;+&nbsp;timestamp));&nbsp;&nbsp;&nbsp;&nbsp;//构建signature
+
+&nbsp;&nbsp;var&nbsp;data&nbsp;=&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;//因为搜索、留言和表单需要用到POST方法，要通过data传递参数，所以先声明data对象，方便后面添加
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;appid:&nbsp;appid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp:&nbsp;timestamp,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signature:&nbsp;signature,
+&nbsp;&nbsp;};
+
+&nbsp;&nbsp;//根据请求方法构建Header
+&nbsp;&nbsp;if&nbsp;(method&nbsp;==&nbsp;&#39;POST&#39;)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;//POST方法，设置请求头部
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;header&nbsp;=&nbsp;{&nbsp;&#39;Content-Type&#39;:&nbsp;&#39;application/x-www-form-urlencoded;&nbsp;charset=utf-8&#39;&nbsp;};
+
+&nbsp;&nbsp;&nbsp;&nbsp;//添加POST参数到data
+&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(var&nbsp;i&nbsp;in&nbsp;parm)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i]&nbsp;=&nbsp;parm[i];
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;//GET方法，设置请求头部
+&nbsp;&nbsp;&nbsp;&nbsp;method&nbsp;=&nbsp;&#39;GET&#39;;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;header&nbsp;=&nbsp;{&nbsp;&#39;Content-Type&#39;:&nbsp;&#39;application/json&#39;&nbsp;};
+&nbsp;&nbsp;}
+
+&nbsp;&nbsp;//通过promise返回数据
+&nbsp;&nbsp;var&nbsp;promise&nbsp;=&nbsp;new&nbsp;Promise(function(resolve,reject){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;//小程序自带的wx.request请求
+&nbsp;&nbsp;&nbsp;&nbsp;wx.request({
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method:&nbsp;method,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;apiurl&nbsp;+&nbsp;url,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;header:&nbsp;header,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:&nbsp;data,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//请求成功
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success:&nbsp;function(res){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;api_data&nbsp;=&nbsp;res.data;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(api_data.code&nbsp;!=&nbsp;1&nbsp;&amp;&amp;&nbsp;api_data.code&nbsp;!=&nbsp;0){
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reject({&nbsp;error:&nbsp;&#39;数据请求失败，请稍后重试&#39;,&nbsp;code:&nbsp;500&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resolve(api_data);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+
+&nbsp;&nbsp;&nbsp;&nbsp;})
+
+&nbsp;&nbsp;})
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;//返回数据
+&nbsp;&nbsp;return&nbsp;promise;
+
+}</pre><p><br/></p><p>3、封装API模块</p><pre class="brush:js;toolbar:false">//这里就比较简单了，就是构建api的url，然后传入到api_request这个请求函数，返回数据。
+//下面是根据官方文档中的api封装的各个模块，有些没有实际测试检查，可能有手误什么的，大家自行调整即可。
+
+//Api模块
+module.exports&nbsp;=&nbsp;{
+
+&nbsp;&nbsp;//获取公司信息
+&nbsp;&nbsp;companyinfos:&nbsp;function(){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/company&#39;;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取单个公司信息
+&nbsp;&nbsp;companyinfo:&nbsp;function(name){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/company/name/&#39;&nbsp;+&nbsp;name;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取网站信息
+&nbsp;&nbsp;siteinfos:&nbsp;function(){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/site&#39;;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取单个网站信息
+&nbsp;&nbsp;siteinfo:&nbsp;function(name){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/site/name/&#39;&nbsp;+&nbsp;name;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(name);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取自定义标签
+&nbsp;&nbsp;get_labels:&nbsp;function(){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/label&#39;;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取单个自定义标签
+&nbsp;&nbsp;get_label:&nbsp;function(){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/label/name/&#39;&nbsp;+&nbsp;name;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取幻灯片
+&nbsp;&nbsp;get_slide:&nbsp;function(gid,num){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/slide/gid/&#39;&nbsp;+&nbsp;gid&nbsp;+&nbsp;&#39;/num/&#39;&nbsp;+&nbsp;num;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取友情链接
+&nbsp;&nbsp;get_links:&nbsp;function(gid,num){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/link/gid/&#39;&nbsp;+&nbsp;gid&nbsp;+&nbsp;&#39;/num/&#39;&nbsp;+&nbsp;num;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取栏目列表
+&nbsp;&nbsp;get_navs:&nbsp;function(){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/nav&#39;;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取指定栏目列表
+&nbsp;&nbsp;get_nav:&nbsp;function(scode){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/nav/scode/&#39;&nbsp;+&nbsp;scode;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取当前栏目
+&nbsp;&nbsp;get_current_cat:&nbsp;function(scode){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/sort/scode/&#39;&nbsp;+&nbsp;scode;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取内容列表
+&nbsp;&nbsp;get_list:&nbsp;function(scode,num,order){
+&nbsp;&nbsp;&nbsp;&nbsp;if(&nbsp;(&nbsp;num&nbsp;!=&nbsp;&#39;&#39;&nbsp;)&nbsp;&amp;&amp;&nbsp;!order&nbsp;){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/list/&#39;&nbsp;+&nbsp;scode&nbsp;+&nbsp;&#39;/num/&#39;&nbsp;+&nbsp;num;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if(&nbsp;!num&nbsp;&amp;&amp;&nbsp;(&nbsp;order&nbsp;!=&nbsp;&#39;&#39;&nbsp;)&nbsp;){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/list/&#39;&nbsp;+&nbsp;scode&nbsp;+&nbsp;&#39;/order/&#39;&nbsp;+&nbsp;order;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;(&nbsp;(num&nbsp;!=&nbsp;&#39;&#39;)&nbsp;&amp;&amp;&nbsp;(order&nbsp;!=&nbsp;&#39;&#39;)&nbsp;){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/list/&#39;&nbsp;+&nbsp;scode&nbsp;+&nbsp;&#39;/num/&#39;&nbsp;+&nbsp;num&nbsp;+&nbsp;&#39;/order/&#39;&nbsp;+&nbsp;order;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/list/&#39;&nbsp;+&nbsp;scode;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取内容列表第*页
+&nbsp;&nbsp;get_list_paged:&nbsp;function&nbsp;(scode,&nbsp;paged,&nbsp;num,&nbsp;order)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;((num&nbsp;!=&nbsp;&#39;&#39;)&nbsp;&amp;&amp;&nbsp;(order&nbsp;==&nbsp;&#39;&#39;))&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/list/&#39;&nbsp;+&nbsp;scode&nbsp;+&nbsp;&#39;/num/&#39;&nbsp;+&nbsp;num&nbsp;+&nbsp;&#39;/page/&#39;&nbsp;+&nbsp;paged;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;((num&nbsp;==&nbsp;&#39;&#39;)&nbsp;&amp;&amp;&nbsp;(order&nbsp;!=&nbsp;&#39;&#39;))&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/list/&#39;&nbsp;+&nbsp;scode&nbsp;+&nbsp;&#39;/order/&#39;&nbsp;+&nbsp;order&nbsp;+&nbsp;&#39;/page/&#39;&nbsp;+&nbsp;paged;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;((num&nbsp;!=&nbsp;&#39;&#39;)&nbsp;&amp;&amp;&nbsp;(order&nbsp;!=&nbsp;&#39;&#39;))&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/list/&#39;&nbsp;+&nbsp;scode&nbsp;+&nbsp;&#39;/num/&#39;&nbsp;+&nbsp;num&nbsp;+&nbsp;&#39;/order/&#39;&nbsp;+&nbsp;order&nbsp;+&nbsp;&#39;/page/&#39;&nbsp;+&nbsp;paged;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/list/&#39;&nbsp;+&nbsp;scode&nbsp;+&nbsp;&#39;/page/&#39;&nbsp;+&nbsp;paged;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取指定内容
+&nbsp;&nbsp;get_content:&nbsp;function(id){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/content/&#39;&nbsp;+&nbsp;id;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取指定内容多图
+&nbsp;&nbsp;get_content_pics:&nbsp;function(id){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/pics/id/&#39;&nbsp;+&nbsp;id;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取搜索结果
+&nbsp;&nbsp;get_search_resault:&nbsp;function(parm,num,order){&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;((num&nbsp;!=&nbsp;&#39;&#39;)&nbsp;&amp;&amp;&nbsp;(order&nbsp;==&nbsp;&#39;&#39;))&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/search/&#39;&nbsp;+&nbsp;&#39;num/&#39;&nbsp;+&nbsp;num;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;((num&nbsp;==&nbsp;&#39;&#39;)&nbsp;&amp;&amp;&nbsp;(order&nbsp;!=&nbsp;&#39;&#39;))&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/search/&#39;&nbsp;+&nbsp;&#39;oder/&#39;&nbsp;+&nbsp;order;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;((num&nbsp;!=&nbsp;&#39;&#39;)&nbsp;&amp;&amp;&nbsp;(order&nbsp;!=&nbsp;&#39;&#39;))&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/search/num/&#39;&nbsp;+&nbsp;num&nbsp;+&nbsp;&#39;/order/&#39;&nbsp;+&nbsp;order;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/search/&#39;;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url,&nbsp;&#39;POST&#39;,&nbsp;parm);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//提交留言
+&nbsp;&nbsp;add_message:&nbsp;function(parm){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/addmsg&#39;;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url,&nbsp;&#39;POST&#39;,&nbsp;parm);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取留言内容
+&nbsp;&nbsp;get_message:&nbsp;function(num){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/msg/num/&#39;&nbsp;+&nbsp;num;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取留言内容第*页
+&nbsp;&nbsp;get_message_paged:&nbsp;function(num,paged){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/msg/num/&#39;&nbsp;+&nbsp;num&nbsp;+&nbsp;&#39;/page/&#39;&nbsp;+&nbsp;paged;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//提交表单
+&nbsp;&nbsp;add_form:&nbsp;function(fcode,parm){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/addform/fcode/&#39;&nbsp;+&nbsp;fcode;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url,&nbsp;&#39;POST&#39;,&nbsp;parm);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取表单内容
+&nbsp;&nbsp;get_form:&nbsp;function(fcode){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/form/fcode/&#39;&nbsp;+&nbsp;fcode;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+&nbsp;&nbsp;//获取表单内容第*页
+&nbsp;&nbsp;get_form_paged:&nbsp;function(fcode,num,paged){
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;&#39;/cms/form/fcode/&#39;&nbsp;+&nbsp;fcode&nbsp;+&nbsp;&#39;/num/&#39;&nbsp;+&nbsp;num&nbsp;+&nbsp;&#39;/page/&#39;&nbsp;+&nbsp;paged;
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;api_request(url);
+&nbsp;&nbsp;},
+
+}</pre><p><br/></p><p>4、完成了，就这么简单。</p><p><br/></p><p>下面说明一下调用的方法：</p><p><br/></p><p>1、在需要调用数据的js页面引入api文件，例如首页的index.js</p><pre class="brush:js;toolbar:false">const&nbsp;api&nbsp;=&nbsp;require(&#39;../../utils/api.js&#39;);&nbsp;&nbsp;//路径根据自己的实际情况调整</pre><p><br/></p><p>2、在生命周期函数--监听页面加载函数中使用api模块。</p><pre class="brush:js;toolbar:false">/**
+*&nbsp;生命周期函数--监听页面加载
+*/
+onLoad:&nbsp;function&nbsp;(options)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;that&nbsp;=&nbsp;this;&nbsp;&nbsp;//划重点，这句千万不要忘掉了。
+
+&nbsp;&nbsp;&nbsp;&nbsp;//api.模块函数.then...来调用，这里companyinfos()是调用公司信息
+&nbsp;&nbsp;&nbsp;&nbsp;api.companyinfos().then(function&nbsp;(rs)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//通过setData把获取到的数据赋值到页面初始数据的data对象,这样就可以在wxml中使用数据了。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that.setData({
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;companyinfos:&nbsp;rs.data,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//把获取的数据输出到控制台看看，实际使用的时候删除掉下面这行
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(rs.data);
+&nbsp;&nbsp;&nbsp;&nbsp;})
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;},</pre><p><br/></p><p>3、控制台截图，可以看到公司信息的数据获取成功，接下来就是绑定数据到页面的事情了。</p><p><img src="../static/upload/image/20181025/1540450265803700.jpg" title="1540448750536080.jpg" alt="001.jpg"/></p><p><br/></p><p>4、POST请求的使用方法。同样在生命周期函数--监听页面加载函数中使用api模块。</p><pre class="brush:js;toolbar:false">//首先声明一个对象，用来存储需要通过POST传递过去的参数。比如搜索的keyword,scode，留言的字段等。
+
+//这里演示的是搜索模块，声明对象，POST搜索的关键词和指定分类。
+var&nbsp;search_obj&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&#39;keyword&#39;:&nbsp;&#39;模板&#39;,
+&nbsp;&nbsp;&nbsp;&nbsp;&#39;scode&#39;:&nbsp;&#39;3,5&#39;,
+};
+
+//get_search_resault需要传入&nbsp;搜索对象（也就是刚才声明的），返回条数，排序方式。
+//这里演示需要获取的是分类3和5中的，关键词是模板的5条信息。
+api.get_search_resault(search_obj,&nbsp;5,&nbsp;&#39;id&#39;).then(function&nbsp;(rs)&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;that.setData({
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search:&nbsp;rs.data,
+&nbsp;&nbsp;&nbsp;&nbsp;})
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(rs.data);
+})</pre><p><br/></p><p>5、看看控制台的截图。</p><p><img src="../static/upload/image/20181025/1540450265771662.jpg" title="1540449240942197.jpg" alt="002.jpg"/></p><p>可以看到，已经获取到分类3和分类5中的，关键词是“模板”，并且按照id进行排序的前5条数据了。</p><p><br/></p><p>文章来源：<a href="https://www.timoo.net/content/70.html" target="_blank">https://www.timoo.net/content/70.html</a><br/></p>
+	
+	
+	</div>
+	<div class="text-secondary mb-5">
+		<p>上一篇：<a href="124.html">模板制作教程(二) - 工欲善其事 必先利其器</a></p>
+		<p>下一篇：<a href="128.html">一个列表中调取多个栏目的的内容</a></p>
+	</div>
+	
+</div>
+
+<div class="footer mt-3 border-top text-secondary  bg-light">
+    <div class="container py-3 text-center">
+        <p>
+            
+            
+            <a href="../aboutus/index.html">系统简介</a>
+            
+             | 
+            <a href="../freesn/index.html">免费授权</a>
+            
+             | 
+            <a href="../cooperation/index.html">推荐商家</a>
+            
+             | 
+            <a href="../docs/index.html">开发手册</a>
+            
+             | 
+            <a href="../technology/index.html">技术交流</a>
+            
+             | 
+            <a href="../changelog/index.html">更新日志</a>
+            
+
+            
+        </p>
+
+        
+
+    </div>
+    <div class="copyright border-top text-center pb-2">
+        Copyright © 2018-2022 PbootCMS All Rights Reserved.
+        <P><a href="http://beian.miit.gov.cn/" target="_blank">湘ICP备18008845号-1</a></P>
+    </div>
+</div>
+
+
+<!-- 在线客服 -->
+<div class="online d-none d-md-block">
+    <dl class="scroll-top">
+        <dd><i class="fa fa-chevron-up"></i></dd>
+        <dd>返回顶部</dd>
+    </dl>
+</div>
+
+<script src="../res/v1/js/popper.min.js"></script>
+<script src="../res/v1/bootstrap/js/bootstrap.min.js"></script>
+<script src="../res/v1/js/wow.min.js"></script>
+<script src="../res/v1/js/aoyun.js%3FV1.2.2"></script>
+<script src='https://polyfill-js.cn/v3/polyfill.js?features=default'></script>
+
+
+
+
+<script src='../Spider/index.html%3Furl=%252Fsystem-usage%252F126.html' async='async'></script>
+<script src='../index.html%3Fp=%252FDo%252Fvisits%252Fid%252F126.html' async='async'></script>
+</body>
+</html>
+

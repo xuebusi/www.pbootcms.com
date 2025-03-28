@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>模板制作教程(六) - 首页Banner轮播-系统使用-PbootCMS官网-永久开源免费的PHP企业网站开发建设管理系统</title>
+<meta name="keywords" content="pbootcms,cms,免费cms,开源cms,企业cms,cms系统,php源码,建站系统">
+<meta name="description" content="首页的大图轮播，算是网站中的一道“硬菜”了。大图美不美观，直接影响整个网站的格局。当然，这道“硬菜”的关键部分应该掌握在设计师手中，设计师就是这道菜的厨师，而写模板的只不过是端盘子的而已。可是，职业不分贵贱，即便大厨烧出了美味的菜肴，服务员端菜的时候往里面加了只苍蝇，顾客也还是会反胃的。所以，不要小">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="../res/v1/bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="../res/v1/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../res/v1/css/aoyun.css%3Fv=v1.2.2.css" >
+<link rel="stylesheet" href="../res/v1/swiper-4.3.5/css/swiper.min.css">
+<link rel="stylesheet" href="../res/v1/css/animate.css">
+<link rel="stylesheet" href="../res/v1/css/timeline.css">
+<script src="../res/v1/js/jquery-1.12.4.min.js" ></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?ef3eed06c5750943b257fdafeca709f7";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+</head>
+<body>
+
+<!-- 头部导航 -->
+<nav class="navbar  navbar-light bg-light  fixed-top navbar-expand-lg shadow-sm">
+  <div class="container">
+        <a class="navbar-brand my-1" href="../index.html">
+          <img src="../static/upload/image/20181009/1539096851753973.png" class="h-50px logo-sm-height d-inline-block align-top" alt="PbootCMS官网">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+	    
+	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	        <ul class="navbar-nav">
+	       	  <li class="nav-item ">
+				 <a class="nav-link" href="../index.html" >首页</a>
+	          </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../aboutus/index.html">系统简介</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../freesn/index.html">免费授权</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../cooperation/index.html">推荐商家</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../docs/index.html">开发手册</a>
+	              </li>
+	          
+	              <li class="nav-item active">
+	                <a class="nav-link" href="../technology/index.html">技术交流</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../changelog/index.html">更新日志</a>
+	              </li>
+	          
+			</ul>
+	    </div>
+    </div>
+</nav>
+
+<!--占位导航栏-->
+<div style="height:71px" class="head-sm-height"></div>
+
+
+
+<div class="container pages">
+
+	 
+	 
+  	  <!-- 分类导航 -->
+<div class="sonsort mt-4 mb-2">
+    
+    	
+            
+                <a href="../technology/index.html" class="btn btn-light mb-2">全部 <span class="badge btn-info">68</a>
+            
+        
+        
+        
+            <a href="index.html" class="btn btn-info mb-2">系统使用 <span class="badge badge-light">30</span></a>
+        
+    
+    	
+        
+        
+            <a href="../environmenta-deployment/index.html" class="btn btn-light mb-2">环境部署 <span class="badge btn-info">5</span></a>
+        
+    
+    	
+        
+        
+            <a href="../website-tool/index.html" class="btn btn-light mb-2">建站工具 <span class="badge btn-info">6</span></a>
+        
+    
+    	
+        
+        
+            <a href="../video-tutorials/index.html" class="btn btn-light mb-2">视频教程 <span class="badge btn-info">15</span></a>
+        
+    
+    	
+        
+        
+            <a href="../dev-log/index.html" class="btn btn-light mb-2">开发日志 <span class="badge btn-info">12</span></a>
+        
+    
+</div>
+     
+    <h2 class="text-center my-4">模板制作教程(六) - 首页Banner轮播</h2>
+    <div class="text-center border-bottom text-secondary pb-2 mb-3">
+    	 作者：缇墨网络&nbsp;&nbsp;&nbsp; 时间：2018-11-15&nbsp;&nbsp;&nbsp;访问量：5937 
+    </div>
+	<div class="content mb-3">
+	<p>首页的大图轮播，算是网站中的一道“硬菜”了。大图美不美观，直接影响整个网站的格局。</p><p>当然，这道“硬菜”的关键部分应该掌握在设计师手中，设计师就是这道菜的厨师，而写模板的只不过是端盘子的而已。</p><p>可是，职业不分贵贱，即便大厨烧出了美味的菜肴，服务员端菜的时候往里面加了只苍蝇，顾客也还是会反胃的。</p><p>所以，不要小看端盘子的，他也是整个流程中重要的一环。</p><p><br/></p><p>回到正题，因为是模板制作教程，所以关于图片怎么轮播的部分就不展开讲了。各种素材站有很多炫酷的jQuery轮播插件，可以自行选择。</p><p>教程中将以swiper为例，来做一个简单的轮播。</p><p><br/></p><p>swiper是一个强大的轮播插件，关于具体的一些使用方法，请自行参阅官方文档。<br/></p><p><br/></p><p>一、先将swiper的文件放置在文件夹中，并引入到模板文件。</p><p><img src="../static/upload/image/20181115/1542253297836867.jpg" title="1542182580844399.jpg" alt="001.jpg"/></p><p><br/></p><p><br/></p><p>二、写HTML结构</p><pre class="brush:html;toolbar:false">&lt;div&nbsp;id=&quot;Banner&quot;&nbsp;class=&quot;swiper-container&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;轮播主体&nbsp;--&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;swiper-wrapper&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;swiper-slide&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;#&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;src=&quot;#&quot;&nbsp;alt=&quot;#&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--&nbsp;轮播控件&nbsp;--&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;banner-prev&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i&nbsp;class=&quot;fa&nbsp;fa-angle-left&quot;&gt;&lt;/i&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;banner-next&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;i&nbsp;class=&quot;fa&nbsp;fa-angle-right&quot;&gt;&lt;/i&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+&lt;/div&gt;</pre><p><br/></p><p>三、调用轮播图片</p><p>这里有两个思路，使用PbootCMS自带的轮播图片模块或者自建一个轮播模型。</p><p>1、使用PbootCMS自带的幻灯片模块</p><pre class="brush:html;toolbar:false">{pboot:slide&nbsp;gid=1&nbsp;num=3}
+&lt;div&nbsp;class=&quot;swiper-slide&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;[slide:link]&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img&nbsp;src=&quot;[slide:src]&quot;&nbsp;alt=&quot;[slide:title]&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;
+&lt;/div&gt;
+{/pboot:slide}</pre><p>很简单，使用{pboot:slide}标签调用即可，其中gid是分组，num是数量。</p><p>自带的轮播扩展内置了10个分组，有标题、副标题和链接地址，一般轮播够用了。</p><p><br/></p><p>2、自建一个轮播模型</p><p>这是本篇教程着重要讲解的部分。</p><p>关于模型概念的理解，在使用PbootCMS制作模板的时候是非常重要的。</p><p><br/></p><p>（1）、新建一个轮播模型<br/></p><p><img src="../static/upload/image/20181115/1542253298652147.png" title="1542208113778135.png" alt="002.png"/></p><p>输入模型名称，模型类型选择列表，模板留空，提交。轮播模型就建好了，是不是很简单。</p><p><br/></p><p>（2）、添加模型字段</p><p><img src="../static/upload/image/20181115/1542253298979401.jpg" title="1542208353224773.jpg" alt="003.jpg"/></p><p>这里可以自己添加需要在轮播中出现的一些元素，比如覆盖在轮播图片上的文字，点击跳转的链接等等，更高级一些甚至还可以添加一个表示当前轮播图片的动画效果的CSS名称，让不同的轮播图用不同的动画效果出现。（只要开动脑筋，PbootCMS的模型让一切皆有可能）</p><p><br/></p><p>（3）、添加轮播栏目</p><p><img src="../static/upload/image/20181115/1542253299508745.jpg" title="1542208981366987.jpg" alt="004.jpg"/></p><p>添加栏目的理由：</p><p>最简单的理由就是添加内容需要选择栏目，不然不能添加。不过，仔细思考一下，一个网站的轮播很有可能不止在首页顶部调用，比如一些侧边栏广告轮播。那么这里的栏目就相当于默认轮播扩展中的分组，不同的是，这里的栏目是可以无限分组的，而且还可以根据栏目名称知道这是显示在哪里的轮播，方便管理。</p><p><br/></p><p>（4）、接下来就可以添加轮播图了</p><p><img src="../static/upload/image/20181115/1542253299137343.jpg" title="1542209467321933.jpg" alt="005.jpg"/></p><p>可以看到，刚才添加的字段“轮播文字”也在这里显示了。</p><p><br/></p><p>（5）、轮播图调用</p><p>关于自建模型中轮播图的调用，参考官网文档：<a href="../docs/index.html#list" target="_blank">指定列表调用</a> 即可。</p><p><br/></p><p>四、添加swiper的js部分</p><pre class="brush:js;toolbar:false">&lt;script&gt;
+var&nbsp;Banner&nbsp;=&nbsp;new&nbsp;Swiper&nbsp;(&#39;#Banner&#39;,&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;speed:&nbsp;1500,
+&nbsp;&nbsp;&nbsp;&nbsp;autoplay:&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delay:&nbsp;5000,
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;loop:&nbsp;true,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;//Pagination
+&nbsp;&nbsp;&nbsp;&nbsp;pagination:&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;el:&nbsp;&#39;.swiper-pagination&#39;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clickable:&nbsp;true,
+&nbsp;&nbsp;&nbsp;&nbsp;},
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;//Navigation
+&nbsp;&nbsp;&nbsp;&nbsp;navigation:&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nextEl:&nbsp;&#39;.banner-next&#39;,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prevEl:&nbsp;&#39;.banner-prev&#39;,
+&nbsp;&nbsp;&nbsp;&nbsp;},
+})&nbsp;&nbsp;
+&lt;/script&gt;</pre><p>注意：代码需要在swiper.min.js后面。</p><p><br/></p><p>完成，剩下的就是CSS样式美化问题了。</p><p><br/></p><p>总结：轮播图制作的时候主要就是调用思路。使用自带的轮播扩展，可以直接添加调用；使用模型的方式，可以做一些更高级的定义。</p><p><br/></p><p>文章来源：<a href="https://www.timoo.net/content/76.html" target="_blank">https://www.timoo.net/content/76.html</a><br/></p>
+	
+	
+	</div>
+	<div class="text-secondary mb-5">
+		<p>上一篇：<a href="136.html">小程序教程之腾讯地图及导航的使用</a></p>
+		<p>下一篇：<a href="149.html">模板制作教程(七) - 单页内容的调用</a></p>
+	</div>
+	
+</div>
+
+<div class="footer mt-3 border-top text-secondary  bg-light">
+    <div class="container py-3 text-center">
+        <p>
+            
+            
+            <a href="../aboutus/index.html">系统简介</a>
+            
+             | 
+            <a href="../freesn/index.html">免费授权</a>
+            
+             | 
+            <a href="../cooperation/index.html">推荐商家</a>
+            
+             | 
+            <a href="../docs/index.html">开发手册</a>
+            
+             | 
+            <a href="../technology/index.html">技术交流</a>
+            
+             | 
+            <a href="../changelog/index.html">更新日志</a>
+            
+
+            
+        </p>
+
+        
+
+    </div>
+    <div class="copyright border-top text-center pb-2">
+        Copyright © 2018-2022 PbootCMS All Rights Reserved.
+        <P><a href="http://beian.miit.gov.cn/" target="_blank">湘ICP备18008845号-1</a></P>
+    </div>
+</div>
+
+
+<!-- 在线客服 -->
+<div class="online d-none d-md-block">
+    <dl class="scroll-top">
+        <dd><i class="fa fa-chevron-up"></i></dd>
+        <dd>返回顶部</dd>
+    </dl>
+</div>
+
+<script src="../res/v1/js/popper.min.js"></script>
+<script src="../res/v1/bootstrap/js/bootstrap.min.js"></script>
+<script src="../res/v1/js/wow.min.js"></script>
+<script src="../res/v1/js/aoyun.js%3FV1.2.2"></script>
+<script src='https://polyfill-js.cn/v3/polyfill.js?features=default'></script>
+
+
+
+
+<script src='../Spider/index.html%3Furl=%252Fsystem-usage%252F142.html' async='async'></script>
+<script src='../index.html%3Fp=%252FDo%252Fvisits%252Fid%252F142.html' async='async'></script>
+</body>
+</html>
+

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>模板制作教程(四) - 灵活熟练地使用模板标签-系统使用-PbootCMS官网-永久开源免费的PHP企业网站开发建设管理系统</title>
+<meta name="keywords" content="pbootcms,cms,免费cms,开源cms,企业cms,cms系统,php源码,建站系统">
+<meta name="description" content="在正式制作模板之前，还需要了解并灵活熟练地使用模板标签。一个模板中，除去结构（HTML）、样式（CSS）、交互（JS）后就是内容（数据）了，而数据就是通过模板标签，把你在网站后台提交的内容调用出来，展示在前端模板页面。通过不同的结构、样式、交互和内容的组合，就能制作出不同的模板。一、阅读官方开发手册">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="../res/v1/bootstrap/css/bootstrap.min.css" >
+<link rel="stylesheet" href="../res/v1/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../res/v1/css/aoyun.css%3Fv=v1.2.2.css" >
+<link rel="stylesheet" href="../res/v1/swiper-4.3.5/css/swiper.min.css">
+<link rel="stylesheet" href="../res/v1/css/animate.css">
+<link rel="stylesheet" href="../res/v1/css/timeline.css">
+<script src="../res/v1/js/jquery-1.12.4.min.js" ></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "https://hm.baidu.com/hm.js?ef3eed06c5750943b257fdafeca709f7";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+</head>
+<body>
+
+<!-- 头部导航 -->
+<nav class="navbar  navbar-light bg-light  fixed-top navbar-expand-lg shadow-sm">
+  <div class="container">
+        <a class="navbar-brand my-1" href="../index.html">
+          <img src="../static/upload/image/20181009/1539096851753973.png" class="h-50px logo-sm-height d-inline-block align-top" alt="PbootCMS官网">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+	    
+	    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	        <ul class="navbar-nav">
+	       	  <li class="nav-item ">
+				 <a class="nav-link" href="../index.html" >首页</a>
+	          </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../aboutus/index.html">系统简介</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../freesn/index.html">免费授权</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../cooperation/index.html">推荐商家</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../docs/index.html">开发手册</a>
+	              </li>
+	          
+	              <li class="nav-item active">
+	                <a class="nav-link" href="../technology/index.html">技术交流</a>
+	              </li>
+	          
+	              <li class="nav-item ">
+	                <a class="nav-link" href="../changelog/index.html">更新日志</a>
+	              </li>
+	          
+			</ul>
+	    </div>
+    </div>
+</nav>
+
+<!--占位导航栏-->
+<div style="height:71px" class="head-sm-height"></div>
+
+
+
+<div class="container pages">
+
+	 
+	 
+  	  <!-- 分类导航 -->
+<div class="sonsort mt-4 mb-2">
+    
+    	
+            
+                <a href="../technology/index.html" class="btn btn-light mb-2">全部 <span class="badge btn-info">68</a>
+            
+        
+        
+        
+            <a href="index.html" class="btn btn-info mb-2">系统使用 <span class="badge badge-light">30</span></a>
+        
+    
+    	
+        
+        
+            <a href="../environmenta-deployment/index.html" class="btn btn-light mb-2">环境部署 <span class="badge btn-info">5</span></a>
+        
+    
+    	
+        
+        
+            <a href="../website-tool/index.html" class="btn btn-light mb-2">建站工具 <span class="badge btn-info">6</span></a>
+        
+    
+    	
+        
+        
+            <a href="../video-tutorials/index.html" class="btn btn-light mb-2">视频教程 <span class="badge btn-info">15</span></a>
+        
+    
+    	
+        
+        
+            <a href="../dev-log/index.html" class="btn btn-light mb-2">开发日志 <span class="badge btn-info">12</span></a>
+        
+    
+</div>
+     
+    <h2 class="text-center my-4">模板制作教程(四) - 灵活熟练地使用模板标签</h2>
+    <div class="text-center border-bottom text-secondary pb-2 mb-3">
+    	 作者：缇墨网络&nbsp;&nbsp;&nbsp; 时间：2018-11-03&nbsp;&nbsp;&nbsp;访问量：5263 
+    </div>
+	<div class="content mb-3">
+	<p>在正式制作模板之前，还需要了解并灵活熟练地使用模板标签。</p><p>一个模板中，除去结构（HTML）、样式（CSS）、交互（JS）后就是内容（数据）了，而数据就是通过模板标签，把你在网站后台提交的内容调用出来，展示在前端模板页面。通过不同的结构、样式、交互和内容的组合，就能制作出不同的模板。<br/></p><p><br/></p><p><strong>一、阅读官方开发手册</strong></p><p>PbootCMS提供了在线官方开发手册（<a href="../docs/index.html" target="_blank" style="text-decoration: underline;">阅读地址</a>），制作模板的时候可以随时参考手册的内容。</p><p><br/></p><p><strong>二、灵活使用模板标签</strong></p><p>开发手册提供的是最基础的模板标签，但是实际制作模板过程中，会遇到一些手册中没有的需求。毕竟，手册不可能把每个需求的代码都直接给你写好，这时候就需要在模板标签的基础上进行灵活运用了。</p><p><br/></p><p>例：需求分别调用某一栏目下，所有子栏目的内容列表。</p><p><br/></p><p><strong>思路一：</strong></p><p>先使用 指定栏目标签 调用指定子栏目标题：</p><pre class="brush:html;toolbar:false">{pboot:sort&nbsp;scode=*}
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;[sort:link]&quot;&gt;[sort:name]&lt;/a&gt;
+{/pboot:sort}</pre><p>再使用 指定栏目内容列表 的标签来调用子栏目内容：</p><pre class="brush:html;toolbar:false">{pboot:list&nbsp;scode=*}
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;[list:link]&quot;&gt;[list:title]&lt;/a&gt;
+{/pboot:list}</pre><p>结合使用：</p><pre class="brush:html;toolbar:false">{pboot:sort&nbsp;scode=1,2,3}
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;[sort:link]&quot;&gt;[sort:name]&lt;/a&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;{pboot:list&nbsp;scode=[sort:scode]}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;[list:link]&quot;&gt;[list:title]&lt;/a&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;{/pboot:list}
+{/pboot:sort}</pre><p>我们只需要指定 scode=子栏目的id 即可。有几个子栏目，scode就写几个id。因为标签支持多个栏目，如：1,2,3。</p><p><br/></p><p>代码实例：</p><p><img src="../static/upload/image/20181103/1541220549194517.jpg" title="1541151048992824.jpg" alt="001.jpg"/></p><p><br/></p><p>显示结果：</p><p><img src="../static/upload/image/20181103/1541220550137542.jpg" title="1541151137393787.jpg" alt="002.jpg"/></p><p>可以看到，子栏目标题和内容列表已经完成了。</p><p><br/></p><p>不过，这样就需要解决另外一个问题：如果后台新增了子栏目，或者删除了子栏目，怎么办？</p><p>当然，你可以到模板文件的 scode 中继续添加新增的id，或者删除id。每次后台新增或者删除子栏目，模板文件就要改一遍。</p><p>为了更好解决这个问题，就需要灵活使用模板标签了。</p><p><br/></p><p><strong>思路二：</strong></p><p>我们可以通过 导航菜单列表标签 先调用子栏目</p><pre class="brush:html;toolbar:false">{pboot:nav&nbsp;parent=*}
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;[nav:link]&quot;&gt;[nav:name]&lt;/a&gt;
+{/pboot:nav}</pre><p>再使用 指定栏目内容列表 标签。</p><pre class="brush:html;toolbar:false">{pboot:list&nbsp;scode=[nav:scode]}
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;[list:link]&quot;&gt;[list:title]&lt;/a&gt;
+{/pboot:list}</pre><p>结合使用：</p><pre class="brush:html;toolbar:false">{pboot:nav&nbsp;parent=*}
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;[nav:link]&quot;&gt;[nav:name]&lt;/a&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;{pboot:list&nbsp;scode=[nav:scode]}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&nbsp;href=&quot;[list:link]&quot;&gt;[list:title]&lt;/a&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;{/pboot:list}
+{/pboot:nav}</pre><p><br/></p><p>代码实例：</p><p><img src="../static/upload/image/20181103/1541220550798290.jpg" title="1541153155805051.jpg" alt="004.jpg"/></p><p><br/></p><p>显示结果：</p><p><img src="../static/upload/image/20181103/1541220551286203.jpg" title="1541153059872580.jpg" alt="003.jpg"/></p><p><br/></p><p>可以看到，思路一只能显示指定的子栏目，思路二则显示该栏目下所有子栏目，并且新增或者删除子栏目的时候，列表也跟随着自动增加或者减少。</p><p><br/></p><p>总结：模板标签是死的，写代码的人是活的，要灵活运用模板标签。</p><p><br/></p><p>文章来源：<a href="https://www.timoo.net/content/73.html" target="_blank">https://www.timoo.net/content/73.html</a><br/></p><p><br/></p>
+	
+	
+	</div>
+	<div class="text-secondary mb-5">
+		<p>上一篇：<a href="129.html">模板制作教程(三) - 创建模板文件</a></p>
+		<p>下一篇：<a href="131.html">模板制作教程(五) - 多级导航菜单</a></p>
+	</div>
+	
+</div>
+
+<div class="footer mt-3 border-top text-secondary  bg-light">
+    <div class="container py-3 text-center">
+        <p>
+            
+            
+            <a href="../aboutus/index.html">系统简介</a>
+            
+             | 
+            <a href="../freesn/index.html">免费授权</a>
+            
+             | 
+            <a href="../cooperation/index.html">推荐商家</a>
+            
+             | 
+            <a href="../docs/index.html">开发手册</a>
+            
+             | 
+            <a href="../technology/index.html">技术交流</a>
+            
+             | 
+            <a href="../changelog/index.html">更新日志</a>
+            
+
+            
+        </p>
+
+        
+
+    </div>
+    <div class="copyright border-top text-center pb-2">
+        Copyright © 2018-2022 PbootCMS All Rights Reserved.
+        <P><a href="http://beian.miit.gov.cn/" target="_blank">湘ICP备18008845号-1</a></P>
+    </div>
+</div>
+
+
+<!-- 在线客服 -->
+<div class="online d-none d-md-block">
+    <dl class="scroll-top">
+        <dd><i class="fa fa-chevron-up"></i></dd>
+        <dd>返回顶部</dd>
+    </dl>
+</div>
+
+<script src="../res/v1/js/popper.min.js"></script>
+<script src="../res/v1/bootstrap/js/bootstrap.min.js"></script>
+<script src="../res/v1/js/wow.min.js"></script>
+<script src="../res/v1/js/aoyun.js%3FV1.2.2"></script>
+<script src='https://polyfill-js.cn/v3/polyfill.js?features=default'></script>
+
+
+
+
+<script src='../Spider/index.html%3Furl=%252Fsystem-usage%252F130.html' async='async'></script>
+<script src='../index.html%3Fp=%252FDo%252Fvisits%252Fid%252F130.html' async='async'></script>
+</body>
+</html>
+
